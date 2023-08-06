@@ -3,6 +3,8 @@
 .DS_Store
 *.svg
 output/*.xml
+output/*
+!output/empty.txt
 *.csv
 *.o
 *.mat
@@ -32,5 +34,4 @@ addons/libRoadrunner/roadrunner/
 addons/libRoadrunner/roadrunner-win64-vs14-cp35m.zip
 addons/PhysiBoSS/MaBoSS-env-2.0/
 addons/PhysiBoSS/libMaBoSS-*.tar.gz
-user_projects/*
 !user_projects/empty.txt
