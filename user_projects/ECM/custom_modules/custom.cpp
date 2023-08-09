@@ -208,36 +208,3 @@ void custom_function( Cell* pCell, Phenotype& phenotype , double dt )
 
 void contact_function( Cell* pMe, Phenotype& phenoMe , Cell* pOther, Phenotype& phenoOther , double dt )
 { return; } 
-
-std::vector<std::string> custom_coloring_function( Cell* pCell)
-{
-// color 0: cytoplasm fill
-// color 1: outer outline
-// color 2: nuclear fill
-// color 3: nuclear outline
-
-std::vector<std::string> output = paint_by_number_cell_coloring(pCell);
-
-// dead cells: black if apoptotic, brown if necrotic - will come from paint by number
-
-
-if( pCell->type_name == "default" && pCell->phenotype.death.dead == false ) // live tumor cells: shade by proliferation rate
-{
-	// get relative birth rate
-	double s = 10 * get_single_behavior( pCell, "cycle entry" )
-	/ get_single_base_behavior( pCell, "cycle entry" );
-	if( s > 1 )
-	{ s = 1; }
-	// make color
-	int color = (int) round( 255.0 * s );
-	char szColor[1024];
-	// interpolate from blue to yellow
-	sprintf( szColor, "rgb(%u,%u,%u)",color,color,255-color );
-	// modify output
-	output[0] = szColor;
-	output[2] = szColor;
-	output[3] = szColor;
-}
-
-return output;
-}
