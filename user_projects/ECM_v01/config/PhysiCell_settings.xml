@@ -53,7 +53,7 @@
                 <diffusion_coefficient units="micron^2/min">100000.0</diffusion_coefficient>
                 <decay_rate units="1/min">0.1</decay_rate>
             </physical_parameter_set>
-            <initial_condition units="mmHg">38</initial_condition>
+            <initial_condition units="mmHg">0</initial_condition>
             <Dirichlet_boundary_condition units="mmHg" enabled="True">38</Dirichlet_boundary_condition>
             <Dirichlet_options>
                 <boundary_value ID="xmin" enabled="True">38</boundary_value>
@@ -135,7 +135,7 @@
                     <relative_maximum_adhesion_distance units="dimensionless">1.25</relative_maximum_adhesion_distance>
                     <cell_adhesion_affinities>
                         <cell_adhesion_affinity name="invasive cell">1</cell_adhesion_affinity>
-                        <cell_adhesion_affinity name="ECM">1.0</cell_adhesion_affinity>
+                        <cell_adhesion_affinity name="ECM_agent">1.0</cell_adhesion_affinity>
                         <cell_adhesion_affinity name="degraded_ECM">1.0</cell_adhesion_affinity>
                     </cell_adhesion_affinities>
                     <options>
@@ -173,7 +173,7 @@
                     <substrate name="oxygen">
                         <secretion_rate units="1/min">0</secretion_rate>
                         <secretion_target units="substrate density">1</secretion_target>
-                        <uptake_rate units="1/min">10</uptake_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
                         <net_export_rate units="total substrate/min">0</net_export_rate>
                     </substrate>
                 </secretion>
@@ -181,25 +181,25 @@
                     <dead_phagocytosis_rate units="1/min">0</dead_phagocytosis_rate>
                     <live_phagocytosis_rates>
                         <phagocytosis_rate name="invasive cell" units="1/min">0</phagocytosis_rate>
-                        <phagocytosis_rate name="ECM" units="1/min">0.0</phagocytosis_rate>
+                        <phagocytosis_rate name="ECM_agent" units="1/min">0.0</phagocytosis_rate>
                         <phagocytosis_rate name="degraded_ECM" units="1/min">0.0</phagocytosis_rate>
                     </live_phagocytosis_rates>
                     <attack_rates>
                         <attack_rate name="invasive cell" units="1/min">0</attack_rate>
-                        <attack_rate name="ECM" units="1/min">0.0</attack_rate>
+                        <attack_rate name="ECM_agent" units="1/min">0.0</attack_rate>
                         <attack_rate name="degraded_ECM" units="1/min">0.0</attack_rate>
                     </attack_rates>
                     <damage_rate units="1/min">1</damage_rate>
                     <fusion_rates>
                         <fusion_rate name="invasive cell" units="1/min">0</fusion_rate>
-                        <fusion_rate name="ECM" units="1/min">0.0</fusion_rate>
+                        <fusion_rate name="ECM_agent" units="1/min">0.0</fusion_rate>
                         <fusion_rate name="degraded_ECM" units="1/min">0.0</fusion_rate>
                     </fusion_rates>
                 </cell_interactions>
                 <cell_transformations>
                     <transformation_rates>
                         <transformation_rate name="invasive cell" units="1/min">0</transformation_rate>
-                        <transformation_rate name="ECM" units="1/min">0.0</transformation_rate>
+                        <transformation_rate name="ECM_agent" units="1/min">0.0</transformation_rate>
                         <transformation_rate name="degraded_ECM" units="1/min">0.0</transformation_rate>
                     </transformation_rates>
                 </cell_transformations>
@@ -208,11 +208,11 @@
                 <sample conserved="false" units="dimensionless" description="">1.0</sample>
             </custom_data>
         </cell_definition>
-        <cell_definition name="ECM" ID="1">
+        <cell_definition name="ECM_agent" ID="1">
             <phenotype>
                 <cycle code="5" name="live">
                     <phase_transition_rates units="1/min">
-                        <rate start_index="0" end_index="0" fixed_duration="false">0.0</rate>
+                        <rate start_index="0" end_index="0" fixed_duration="true">0.0</rate>
                     </phase_transition_rates>
                 </cycle>
                 <death>
@@ -233,7 +233,7 @@
                     <model code="101" name="necrosis">
                         <death_rate units="1/min">0.0</death_rate>
                         <phase_transition_rates units="1/min">
-                            <rate start_index="0" end_index="1" fixed_duration="false">9e9</rate>
+                            <rate start_index="0" end_index="1" fixed_duration="false">9000000000.0</rate>
                             <rate start_index="1" end_index="2" fixed_duration="true">1.15741e-05</rate>
                         </phase_transition_rates>
                         <parameters>
@@ -263,7 +263,7 @@
                     <relative_maximum_adhesion_distance units="dimensionless">1.25</relative_maximum_adhesion_distance>
                     <cell_adhesion_affinities>
                         <cell_adhesion_affinity name="invasive cell">1.0</cell_adhesion_affinity>
-                        <cell_adhesion_affinity name="ECM">1.0</cell_adhesion_affinity>
+                        <cell_adhesion_affinity name="ECM_agent">1.0</cell_adhesion_affinity>
                         <cell_adhesion_affinity name="degraded_ECM">1.0</cell_adhesion_affinity>
                     </cell_adhesion_affinities>
                     <options>
@@ -309,25 +309,25 @@
                     <dead_phagocytosis_rate units="1/min">0.0</dead_phagocytosis_rate>
                     <live_phagocytosis_rates>
                         <phagocytosis_rate name="invasive cell" units="1/min">0.0</phagocytosis_rate>
-                        <phagocytosis_rate name="ECM" units="1/min">0.0</phagocytosis_rate>
+                        <phagocytosis_rate name="ECM_agent" units="1/min">0.0</phagocytosis_rate>
                         <phagocytosis_rate name="degraded_ECM" units="1/min">0.0</phagocytosis_rate>
                     </live_phagocytosis_rates>
                     <attack_rates>
                         <attack_rate name="invasive cell" units="1/min">0.0</attack_rate>
-                        <attack_rate name="ECM" units="1/min">0.0</attack_rate>
+                        <attack_rate name="ECM_agent" units="1/min">0.0</attack_rate>
                         <attack_rate name="degraded_ECM" units="1/min">0.0</attack_rate>
                     </attack_rates>
                     <damage_rate units="1/min">1.0</damage_rate>
                     <fusion_rates>
                         <fusion_rate name="invasive cell" units="1/min">0.0</fusion_rate>
-                        <fusion_rate name="ECM" units="1/min">0.0</fusion_rate>
+                        <fusion_rate name="ECM_agent" units="1/min">0.0</fusion_rate>
                         <fusion_rate name="degraded_ECM" units="1/min">0.0</fusion_rate>
                     </fusion_rates>
                 </cell_interactions>
                 <cell_transformations>
                     <transformation_rates>
                         <transformation_rate name="invasive cell" units="1/min">0.0</transformation_rate>
-                        <transformation_rate name="ECM" units="1/min">0.0</transformation_rate>
+                        <transformation_rate name="ECM_agent" units="1/min">0.0</transformation_rate>
                         <transformation_rate name="degraded_ECM" units="1/min">0.0</transformation_rate>
                     </transformation_rates>
                 </cell_transformations>
@@ -340,7 +340,7 @@
             <phenotype>
                 <cycle code="5" name="live">
                     <phase_transition_rates units="1/min">
-                        <rate start_index="0" end_index="0" fixed_duration="false">0.0</rate>
+                        <rate start_index="0" end_index="0" fixed_duration="true">0.0</rate>
                     </phase_transition_rates>
                 </cycle>
                 <death>
@@ -361,7 +361,7 @@
                     <model code="101" name="necrosis">
                         <death_rate units="1/min">0.0</death_rate>
                         <phase_transition_rates units="1/min">
-                            <rate start_index="0" end_index="1" fixed_duration="false">9e9</rate>
+                            <rate start_index="0" end_index="1" fixed_duration="false">9000000000.0</rate>
                             <rate start_index="1" end_index="2" fixed_duration="true">1.15741e-05</rate>
                         </phase_transition_rates>
                         <parameters>
@@ -391,7 +391,7 @@
                     <relative_maximum_adhesion_distance units="dimensionless">1.25</relative_maximum_adhesion_distance>
                     <cell_adhesion_affinities>
                         <cell_adhesion_affinity name="invasive cell">0.0</cell_adhesion_affinity>
-                        <cell_adhesion_affinity name="ECM">0.0</cell_adhesion_affinity>
+                        <cell_adhesion_affinity name="ECM_agent">0.0</cell_adhesion_affinity>
                         <cell_adhesion_affinity name="degraded_ECM">0.0</cell_adhesion_affinity>
                     </cell_adhesion_affinities>
                     <options>
@@ -400,7 +400,7 @@
                     </options>
                     <cell_BM_adhesion_strength units="micron/min">4.0</cell_BM_adhesion_strength>
                     <cell_BM_repulsion_strength units="micron/min">10.0</cell_BM_repulsion_strength>
-                    <attachment_elastic_constant units="1/min">0.00</attachment_elastic_constant>
+                    <attachment_elastic_constant units="1/min">0.0</attachment_elastic_constant>
                     <attachment_rate units="1/min">0.0</attachment_rate>
                     <detachment_rate units="1/min">0.0</detachment_rate>
                 </mechanics>
@@ -437,25 +437,25 @@
                     <dead_phagocytosis_rate units="1/min">0.0</dead_phagocytosis_rate>
                     <live_phagocytosis_rates>
                         <phagocytosis_rate name="invasive cell" units="1/min">0.0</phagocytosis_rate>
-                        <phagocytosis_rate name="ECM" units="1/min">0.0</phagocytosis_rate>
+                        <phagocytosis_rate name="ECM_agent" units="1/min">0.0</phagocytosis_rate>
                         <phagocytosis_rate name="degraded_ECM" units="1/min">0.0</phagocytosis_rate>
                     </live_phagocytosis_rates>
                     <attack_rates>
                         <attack_rate name="invasive cell" units="1/min">0.0</attack_rate>
-                        <attack_rate name="ECM" units="1/min">0.0</attack_rate>
+                        <attack_rate name="ECM_agent" units="1/min">0.0</attack_rate>
                         <attack_rate name="degraded_ECM" units="1/min">0.0</attack_rate>
                     </attack_rates>
                     <damage_rate units="1/min">1.0</damage_rate>
                     <fusion_rates>
                         <fusion_rate name="invasive cell" units="1/min">0.0</fusion_rate>
-                        <fusion_rate name="ECM" units="1/min">0.0</fusion_rate>
+                        <fusion_rate name="ECM_agent" units="1/min">0.0</fusion_rate>
                         <fusion_rate name="degraded_ECM" units="1/min">0.0</fusion_rate>
                     </fusion_rates>
                 </cell_interactions>
                 <cell_transformations>
                     <transformation_rates>
                         <transformation_rate name="invasive cell" units="1/min">0.0</transformation_rate>
-                        <transformation_rate name="ECM" units="1/min">0.0</transformation_rate>
+                        <transformation_rate name="ECM_agent" units="1/min">0.0</transformation_rate>
                         <transformation_rate name="degraded_ECM" units="1/min">0.0</transformation_rate>
                     </transformation_rates>
                 </cell_transformations>
